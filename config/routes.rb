@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get '/' => 'journeys#index'
+  get '/' => 'index#index'
+
+  get '/journeys' => 'journeys#index'
   get '/journeys/new' => 'journeys#new'
   post '/journeys/' => 'journeys#create'
   get '/journeys/:id' => 'journeys#show'

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160922011409) do
   create_table "journeys", force: :cascade do |t|
     t.string   "place"
     t.datetime "startdate"
-    t.datetime "enddate"
+    t.datetime "enddate"d
     t.integer  "user_id"
     t.boolean  "public"
     t.datetime "created_at", null: false

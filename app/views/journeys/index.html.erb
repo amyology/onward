@@ -1,0 +1,8 @@
+<h1>Journeys</h1>
+
+<%= link_to 'Add New', '/journeys/new' %>
+
+<% @journeys.each do |journey| %>
+  <%= Journey.place %> <br>
+  <%= Journey.startdate %> <br><br>
+<% end %>

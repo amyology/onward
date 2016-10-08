@@ -1,0 +1,28 @@
+<h1><%= @journey.place %></h1>
+
+Date: <%= @journey.startdate %> - <%= @journey.enddate %> <br>
+
+<%= link_to 'Edit Journey', "/journeys/#{@journey.id}/edit" %>
+
+<h2>Days</h2>
+
+<% @journey.days.each do |day| %>
+  Day <%= day.daynumber %>: <%= link_to "#{day.location}", "/days/#{day.id}" %>
+<% end %>
+
+<h2>Add Day</h2>
+
+<%= form_tag '/days', method: :post do %>
+
+  <%= label_tag 'Day number' %>
+  <%= text_field_tag :daynumber %><br>
+
+  <%= label_tag :location %>
+  <%= text_field_tag :location, 'Where did you go?' %><br>
+
+  <%= label_tag :public %>
+  <%= text_field_tag :public, 'true or false' %><br>
+
+  <%= submit_tag 'Submit' %>
+
+<% end %>

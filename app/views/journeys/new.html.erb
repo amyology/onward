@@ -1,0 +1,22 @@
+<h1>Add New Journey</h1>
+
+<%= form_tag '/journeys', method: :post do %>
+
+  <%= label_tag :place %>
+  <%= text_field_tag :place %><br>
+
+  <%= label_tag :startdate %>
+  <%= text_field_tag :startdate %><br>
+
+  <%= label_tag :enddate %>
+  <%= text_field_tag :enddate %><br>
+
+  <%= label_tag :user_id %>
+  <%= text_field_tag :user_id %><br>
+
+  <%= label_tag :public %>
+  <%= text_field_tag :public %><br>
+
+  <%= submit_tag 'Submit' %>
+
+<% end %>

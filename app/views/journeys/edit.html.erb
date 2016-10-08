@@ -1,0 +1,22 @@
+<h1>Edit Journey</h1>
+
+<%= form_tag "/journeys/#{@journey.id}", method: :patch do %>
+
+  <%= label_tag :place %>
+  <%= text_field_tag :place, @journey.place %><br>
+
+  <%= label_tag :startdate %>
+  <%= text_field_tag :startdate, @journey.startdate %><br>
+
+  <%= label_tag :enddate %>
+  <%= text_field_tag :enddate, @journey.enddate %><br>
+
+  <%= label_tag :user_id %>
+  <%= text_field_tag :user_id, @journey.user_id %><br>
+
+  <%= label_tag :public %>
+  <%= text_field_tag :public, @journey.public %><br>
+
+  <%= submit_tag 'Save' %>
+
+<% end %>
