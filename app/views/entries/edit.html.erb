@@ -1,0 +1,17 @@
+<h1>Edit Entry</h1>
+
+<h2>Journey: <%= @journey.place %></h2>
+
+<h3>Day <%= @day.daynumber %></h3>
+
+<%= form_tag "/entries/#{@entry.id}", method: :patch do %>
+
+  <%= label_tag :text %>
+  <%= text_area_tag :text, @entry.text %><br>
+
+  <%= label_tag :public %>
+  <%= text_field_tag :public, @entry.public %><br>
+
+  <%= submit_tag 'Save' %>
+ 
+<% end %>

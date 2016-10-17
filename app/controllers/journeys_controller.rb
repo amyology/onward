@@ -16,12 +16,14 @@ class JourneysController < ApplicationController
       user_id: params[:user_id],
       public: params[:public]
       )
-    @journey.save
-    redirect_to "/journeys/#{@journey.id}"
+    if @journey.save
+      redirect_to "/journeys/#{@journey.id}"
+    end
   end
 
   def show
     @journey = Journey.find(params[:id])
+    @days = @journey.days.sort
   end
 
   def edit

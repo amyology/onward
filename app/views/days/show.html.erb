@@ -1,2 +1,29 @@
 <h1><%= @journey.place %>: Day <%= @day.daynumber %></h1>
-<h2><%= @day.location %></h2>
+
+Location: <%= @day.location %> <%= link_to 'Edit', "/days/#{@day.id}/edit" %>
+
+<br><br>
+
+<h3>Add Entry</h3>
+
+<%= form_tag '/entries', method: :post do %>
+
+  <%= label_tag :text %>
+  <%= text_area_tag :text %><br>
+
+  <%= label_tag :public %>
+  <%= text_field_tag :public %><br>
+
+  <%= hidden_field_tag :day_id, @day.id %>
+
+  <%= submit_tag 'Submit' %>
+
+<% end %>
+
+<br>
+
+<h3>Entries</h3>
+
+<% @entries.each do |entry| %>
+  <p><%= entry.text %> <%= link_to "Edit", "/entries/#{entry.id}/edit" %></p>
+<% end %>

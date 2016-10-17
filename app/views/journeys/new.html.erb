@@ -17,6 +17,8 @@
   <%= label_tag :public %>
   <%= text_field_tag :public %><br>
 
+  <% hidden_field_tag :journey_id, @journey.id %>
+
   <%= submit_tag 'Submit' %>
 
 <% end %>

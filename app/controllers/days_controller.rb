@@ -1,28 +1,30 @@
 class DaysController < ApplicationController
 
   def new
-    @day = Day.new
+
   end
 
   def create
-    @journey = Journey.find(params[:id])
     @day = Day.new(
       daynumber: params[:daynumber],
       location: params[:location],
-      journey_id: @journey.id,
+      journey_id: params[:journey_id],
       public: params[:public]
       )
-    @day.save
-    redirect_to "/days/#{@day.id}"
+    if @day.save
+      redirect_to "/days/#{@day.id}"
+    end
   end
 
   def show
     @day = Day.find(params[:id])
-    @journey = Journey.find_by(params[@day.journey_id])
+    @journey = Journey.find(@day.journey_id)
+    @entries = @day.entries
   end
 
   def edit
     @day = Day.find(params[:id])
+    @journey = Journey.find(@day.journey_id)
   end
 
   def update
@@ -38,7 +40,8 @@ class DaysController < ApplicationController
   def destroy
     @day = Day.find(params[:id])
     @day.destroy
-    redirect_to "/journeys"
+    @journey = Journey.find(@day.journey_id)
+    redirect_to "/journeys/#{@journey.id}"
   end
 
 end

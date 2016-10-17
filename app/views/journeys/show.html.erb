@@ -6,8 +6,8 @@ Date: <%= @journey.startdate %> - <%= @journey.enddate %> <br>
 
 <h2>Days</h2>
 
-<% @journey.days.each do |day| %>
-  Day <%= day.daynumber %>: <%= link_to "#{day.location}", "/days/#{day.id}" %>
+<% @days.each do |day| %>
+  <p>Day <%= day.daynumber %>: <%= link_to "#{day.location}", "/days/#{day.id}" %></p>
 <% end %>
 
 <h2>Add Day</h2>
@@ -22,6 +22,8 @@ Date: <%= @journey.startdate %> - <%= @journey.enddate %> <br>
 
   <%= label_tag :public %>
   <%= text_field_tag :public, 'true or false' %><br>
+
+  <%= hidden_field_tag :journey_id, @journey.id %>
 
   <%= submit_tag 'Submit' %>
 
