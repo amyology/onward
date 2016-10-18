@@ -6,11 +6,11 @@
 
 <%= form_tag "/entries/#{@entry.id}", method: :patch do %>
 
-  <%= label_tag :text %>
+  <%= label_tag :text %>:
   <%= text_area_tag :text, @entry.text %><br>
 
-  <%= label_tag :public %>
-  <%= text_field_tag :public, @entry.public %><br>
+  <%= label_tag :public %>?
+  <%= check_box_tag :public, nil, @entry.public %><br>
 
   <%= submit_tag 'Save' %>
  

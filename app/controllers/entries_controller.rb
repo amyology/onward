@@ -27,6 +27,8 @@ class EntriesController < ApplicationController
       text: params[:text],
       public: params[:public]
       )
+    @day = Day.find(@entry.day_id)
+    redirect_to "/days/#{@day.id}"
   end
 
   def destroy

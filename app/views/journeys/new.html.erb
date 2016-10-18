@@ -2,22 +2,20 @@
 
 <%= form_tag '/journeys', method: :post do %>
 
-  <%= label_tag :place %>
+  <%= label_tag :place %>:
   <%= text_field_tag :place %><br>
 
-  <%= label_tag :startdate %>
+  <%= label_tag :startdate, 'Start Date' %>:
   <%= text_field_tag :startdate %><br>
 
-  <%= label_tag :enddate %>
+  <%= label_tag :enddate, 'End Date' %>:
   <%= text_field_tag :enddate %><br>
 
-  <%= label_tag :user_id %>
+  <%= label_tag :user_id %>:
   <%= text_field_tag :user_id %><br>
 
-  <%= label_tag :public %>
-  <%= text_field_tag :public %><br>
-
-  <% hidden_field_tag :journey_id, @journey.id %>
+  <%= label_tag :public %>?
+  <%= check_box_tag :public, nil, true %><br>
 
   <%= submit_tag 'Submit' %>
 

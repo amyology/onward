@@ -6,14 +6,14 @@
 
 <%= form_tag "/days/#{@day.id}", method: :patch do %>
 
-  <%= label_tag :daynumber %>
+  <%= label_tag :daynumber, "Day Number" %>:
   <%= text_field_tag :daynumber, @day.daynumber %><br>
 
-  <%= label_tag :location %>
+  <%= label_tag :location %>:
   <%= text_field_tag :location, @day.location %><br>
 
-  <%= label_tag :public %>
-  <%= text_field_tag :public, @day.public %><br>
+  <%= label_tag :public %>?
+  <%= check_box_tag :public, nil, @day.public %><br>
 
   <%= submit_tag 'Save' %>
  

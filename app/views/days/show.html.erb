@@ -8,11 +8,11 @@ Location: <%= @day.location %> <%= link_to 'Edit', "/days/#{@day.id}/edit" %>
 
 <%= form_tag '/entries', method: :post do %>
 
-  <%= label_tag :text %>
+  <%= label_tag :text %>:
   <%= text_area_tag :text %><br>
 
-  <%= label_tag :public %>
-  <%= text_field_tag :public %><br>
+  <%= label_tag :public %>?
+  <%= check_box_tag :public, nil, true %><br>
 
   <%= hidden_field_tag :day_id, @day.id %>
 

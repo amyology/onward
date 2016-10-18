@@ -2,20 +2,20 @@
 
 <%= form_tag "/journeys/#{@journey.id}", method: :patch do %>
 
-  <%= label_tag :place %>
+  <%= label_tag :place %>:
   <%= text_field_tag :place, @journey.place %><br>
 
-  <%= label_tag :startdate %>
+  <%= label_tag :startdate, 'Start Date' %>:
   <%= text_field_tag :startdate, @journey.startdate %><br>
 
-  <%= label_tag :enddate %>
+  <%= label_tag :enddate, 'End Date' %>:
   <%= text_field_tag :enddate, @journey.enddate %><br>
 
-  <%= label_tag :user_id %>
+  <%= label_tag :user_id %>:
   <%= text_field_tag :user_id, @journey.user_id %><br>
 
-  <%= label_tag :public %>
-  <%= text_field_tag :public, @journey.public %><br>
+  <%= label_tag :public %>?
+  <%= check_box_tag :public, @journey.public %><br>
 
   <%= submit_tag 'Save' %>
 
