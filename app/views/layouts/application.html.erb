@@ -9,6 +9,17 @@
   </head>
 
   <body>
+
+    <nav class="nav-bg">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Onward</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><%= link_to 'Journeys', '/journeys' %></li>
+        </ul>
+      </div>
+    </nav>
+
     <%= yield %>
+
   </body>
 </html>

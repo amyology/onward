@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+$teal: #26a69a;
+$cyan: #26c6da;
+
+body {
+  background-image: url('bg1.jpg');
+  background-size: cover;
+  text-align: center;
+}
+
+.nav-bg {
+  background: $teal;
+  background: -webkit-linear-gradient(left, $teal, $cyan);
+  background: -o-linear-gradient(right, $teal, $cyan);
+  background: -moz-linear-gradient(right, $teal, $cyan);
+  background: linear-gradient(to right, $teal, $cyan);
+}
+
+.cursive {
+  font-family: 'Pacifico', cursive;
+}
+
+.border {
+  border: 1px solid black;
+}

@@ -9,13 +9,7 @@ class JourneysController < ApplicationController
   end
 
   def create
-    @journey = Journey.new(
-      place: params[:place],
-      startdate: params[:startdate],
-      enddate: params[:enddate],
-      user_id: params[:user_id],
-      public: params[:public]
-      )
+    @journey = Journey.new(journey_params)
     if @journey.save
       redirect_to "/journeys/#{@journey.id}"
     end
@@ -46,6 +40,12 @@ class JourneysController < ApplicationController
     @journey = Journey.find(params[:id])
     @journey.destroy
     redirect_to "/journeys"
+  end
+
+  private
+
+  def journey_params
+    params.require(:journey).permit(:place, :startdate, :enddate, :user_id, :public)
   end
 
 end

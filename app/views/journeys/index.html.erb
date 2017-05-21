@@ -1,4 +1,4 @@
-<h1>Journeys</h1>
+<h3>My Journeys</h3>
 
 <p><%= link_to 'Add New', '/journeys/new' %></p>
 
@@ -6,6 +6,6 @@
 <% counter = 1 %>
 <% @journeys.each do |journey| %>
   <%= counter %>. <%= link_to "#{journey.place}", "/journeys/#{journey.id}" %> <br>
-  <%= journey.startdate %> <br><br>
+  <%= journey.startdate %> <br>
   <% counter += 1 %>
 <% end %>

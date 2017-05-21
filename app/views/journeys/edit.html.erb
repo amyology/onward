@@ -1,22 +1,27 @@
-<h1>Edit Journey</h1>
+<h4>Edit Journey</h4>
 
 <%= form_tag "/journeys/#{@journey.id}", method: :patch do %>
 
-  <%= label_tag :place %>:
+  <%= label_tag :place %>
   <%= text_field_tag :place, @journey.place %><br>
 
-  <%= label_tag :startdate, 'Start Date' %>:
-  <%= text_field_tag :startdate, @journey.startdate %><br>
+  <div class="row">
+    <div class="col s6 m6 l6">
+      <%= label_tag :startdate, 'Start Date' %>
+      <input type="date" class="datepicker" id="startdate" name="startdate" placeholder="<%= @journey.startdate.strftime('%B %e, %Y') %>">
+    </div>
+    <div class="col s6 m6 l6">
+      <%= label_tag :enddate, 'End Date' %>
+      <input type="date" class="datepicker" id="enddate" name="enddate" placeholder="<%= @journey.enddate.strftime('%B %e, %Y') %>">
+    </div>
+  </div>
 
-  <%= label_tag :enddate, 'End Date' %>:
-  <%= text_field_tag :enddate, @journey.enddate %><br>
-
-  <%= label_tag :user_id %>:
+  <%= label_tag :user_id %>
   <%= text_field_tag :user_id, @journey.user_id %><br>
 
-  <%= label_tag :public %>?
-  <%= check_box_tag :public, @journey.public %><br>
+  <%= label_tag :public %>
+  <%= text_field_tag :public, @journey.public %><br>
 
-  <%= submit_tag 'Save' %>
+  <%= submit_tag 'Save', class: 'btn' %>
 
 <% end %>
