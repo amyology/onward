@@ -1,6 +1,8 @@
 <h1><%= @journey.place %>: Day <%= @day.daynumber %></h1>
 
-Location: <%= @day.location %> <%= link_to 'Edit', "/days/#{@day.id}/edit" %>
+<h4>Location: <%= @day.location %></h4>
+
+<%= link_to 'Edit', "/days/#{@day.id}/edit", class: 'btn' %>
 
 <br><br>
 
@@ -11,19 +13,24 @@ Location: <%= @day.location %> <%= link_to 'Edit', "/days/#{@day.id}/edit" %>
   <%= label_tag :text %>:
   <%= text_area_tag :text %><br>
 
-  <%= label_tag :public %>?
-  <%= check_box_tag :public, nil, true %><br>
+  <%= hidden_field_tag :public, '' %>
+  <%= check_box_tag :public, true %>
+  <%= label_tag :public %><br>
 
   <%= hidden_field_tag :day_id, @day.id %>
 
-  <%= submit_tag 'Submit' %>
+  <%= submit_tag 'Submit', class: 'btn' %>
 
 <% end %>
 
 <br>
 
-<h3>Entries</h3>
+<% if @entries.length > 0 %>
 
-<% @entries.each do |entry| %>
-  <p><%= entry.text %> <%= link_to "Edit", "/entries/#{entry.id}/edit" %></p>
+  <h3>Entries</h3>
+
+  <% @entries.each do |entry| %>
+    <p><%= entry.text %> <%= link_to "Edit", "/entries/#{entry.id}/edit" %></p>
+  <% end %>
+
 <% end %>

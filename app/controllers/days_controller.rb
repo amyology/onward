@@ -13,6 +13,8 @@ class DaysController < ApplicationController
       )
     if @day.save
       redirect_to "/days/#{@day.id}"
+    else
+      redirect_to request.referer
     end
   end
 

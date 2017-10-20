@@ -10,6 +10,11 @@ body {
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
+textarea:focus {
+  outline: none;
+  border: 1px solid $teal;
+}
+
 .nav-bg {
   background: $teal;
   background: -webkit-linear-gradient(left, $teal, $cyan);
@@ -24,4 +29,9 @@ body {
 
 .border {
   border: 1px solid black;
+}
+
+.card {
+  padding: 50px;
+  margin: 50px;
 }

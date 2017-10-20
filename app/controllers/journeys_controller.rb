@@ -12,6 +12,8 @@ class JourneysController < ApplicationController
     @journey = Journey.new(journey_params)
     if @journey.save
       redirect_to "/journeys/#{@journey.id}"
+    else
+      render :new
     end
   end
 

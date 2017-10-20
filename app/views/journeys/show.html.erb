@@ -19,25 +19,20 @@
 <%= form_tag '/days', method: :post do %>
 
   <%= label_tag :daynumber, 'Day Number' %>
-  <%= text_field_tag :daynumber, @days.count + 1 %><br>
+  <h5><%= @days.count + 1 %></h5>
+  <%= hidden_field_tag :daynumber, @days.count + 1 %>
 
   <%= label_tag :location %>
-  <%= text_field_tag :location, 'Where did you go?' %><br>
+  <%= text_field_tag :location, nil, placeholder: 'Where did you go?' %><br>
 
   <% if @journey.public %>
     <%= label_tag :public %>
-    <%= check_box_tag :public, nil, true %><br>
+    <%= check_box_tag :public, true %><br>
   <% end %>
 
-  <div class="switch">
-    <label>
-      Private
-      <input type="checkbox" id="public" name="public" value="true">
-      <span class="lever"></span>
-      Public
-    </label>
-  </div>
-  <br>
+  <input type="checkbox" id="public" name="public" value="true" />
+  <label for="public">Public</label>
+
 
   <%= hidden_field_tag :journey_id, @journey.id %>
 

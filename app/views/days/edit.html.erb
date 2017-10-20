@@ -1,8 +1,7 @@
-<h1>Edit Day</h1>
+<h1>Edit Day <%= @day.daynumber %></h1>
 
-<h3>Journey: <%= @journey.place %></h3>
-
-<h3>Day <%= @day.daynumber %></h3>
+<h3>Of</h3>
+<h2><%= @journey.place %></h2>
 
 <%= form_tag "/days/#{@day.id}", method: :patch do %>
 
@@ -12,9 +11,9 @@
   <%= label_tag :location %>:
   <%= text_field_tag :location, @day.location %><br>
 
-  <%= label_tag :public %>?
-  <%= check_box_tag :public, nil, @day.public %><br>
+  <%= check_box_tag :public, true, @day.public %>
+  <%= label_tag :public %><br>
 
-  <%= submit_tag 'Save' %>
+  <%= submit_tag 'Save', class: 'btn' %>
  
 <% end %>
