@@ -3,17 +3,17 @@
 <h3>Of</h3>
 <h2><%= @journey.place %></h2>
 
-<%= form_tag "/days/#{@day.id}", method: :patch do %>
+<%= form_for @day do |f| %>
 
-  <%= label_tag :daynumber, "Day Number" %>:
-  <%= text_field_tag :daynumber, @day.daynumber %><br>
+  <%= f.label :daynumber, "Day Number" %>:
+  <%= f.text_field :daynumber, value: @day.daynumber %><br>
 
-  <%= label_tag :location %>:
-  <%= text_field_tag :location, @day.location %><br>
+  <%= f.label :location %>:
+  <%= f.text_field :location, value: @day.location %><br>
 
-  <%= check_box_tag :public, true, @day.public %>
-  <%= label_tag :public %><br>
+  <%= f.check_box :public, {value: @day.public}, "true", "false"  %>
+  <%= f.label :public %><br>
 
-  <%= submit_tag 'Save', class: 'btn' %>
+  <%= f.submit 'Save', class: 'btn' %>
  
 <% end %>

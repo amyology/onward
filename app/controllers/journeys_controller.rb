@@ -28,13 +28,7 @@ class JourneysController < ApplicationController
 
   def update
     @journey = Journey.find(params[:id])
-    @journey.update(
-      place: params[:place],
-      startdate: params[:startdate],
-      enddate: params[:enddate],
-      user_id: params[:user_id],
-      public: params[:public]
-      )
+    @journey.update(journey_params)
     redirect_to "/journeys/#{@journey.id}"
   end
 
